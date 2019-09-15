@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  display: flex;
+	height: 100%;
+  flex-direction: column;
+}
+
+body {
+	background: #f9f9f9;
+}
+
+body, input, button {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@import './App';
+
+// Pages
+@import './pages/Users/Users';
+@import './pages/Publications/Publications';
+
+// Components
+@import './components/Header/Header';
+@import './components/Menu/Menu'
