@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 // Pages
@@ -10,15 +10,46 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 
 export default function App() {
+  const [search, setSearch] = useState('');
+  const [openMenu, setOpenMenu] = useState(false);
+  const [searchPlaceholder, setSearchPlaceholder] = useState('');
+
+  function handleSearchPlaceholder(placeholderData) {
+    setSearchPlaceholder(placeholderData);
+  }
+
+  function handleOpenMenu() {
+    setOpenMenu(!openMenu);
+  }
+
   return (
     <Router>
-      <Header />
+      <Header search={setSearch} searchPlaceholder={searchPlaceholder} openMenu={handleOpenMenu} />
 
       <main>
-        <Menu />
+        <Menu open={openMenu} />
 
-        <Route path="/usuarios" exact component={Users} />
-        <Route path="/publicacoes" exact component={Publications} />
+        <Route
+          path="/usuarios"
+          exact
+          render={() => (
+            <Users
+              search={search}
+              searchPlaceholder={handleSearchPlaceholder}
+            />
+          )}
+        />
+
+        <Route
+          path="/publicacoes"
+          exact
+          render={() => (
+            <Publications
+              search={search}
+              searchPlaceholder={handleSearchPlaceholder}
+            />
+          )}
+        />
         <Redirect from="/" to="/usuarios" />
       </main>
     </Router>

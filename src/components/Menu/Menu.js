@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faFolder } from '@fortawesome/free-solid-svg-icons';
 
-function Menu() {
+function Menu({ open }) {
   return (
-    <nav className="Menu">
+    <nav className={`Menu ${open && '-open'}`}>
       <NavLink className="Menu__item" to="/usuarios">
         <div className="Menu__item-icon">
           <FontAwesomeIcon icon={faUsers} />
