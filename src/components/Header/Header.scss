@@ -8,6 +8,31 @@
   &__menu {
     display: flex;
     width: 240px;
+    align-items: center;
+  }
+
+  &__menu-button {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #606060;
+    cursor: pointer;
+    transition: background-color .2s;
+
+    &:hover {
+      background: rgba(#000, .1);
+    }
+
+    &:active {
+      background: rgba(#000, .2);
+    }
   }
 
   &__logo {
@@ -52,5 +77,18 @@
 }
 
 @media (max-width: 1200px) {
+  .Header {
+    &__menu {
+      width: auto;
+    }
 
+    &__menu-button {
+      display: flex;
+      margin-right: 8px;
+    }
+
+    &__search {
+      margin: 0 16px;
+    }
+  }
 }

@@ -15,10 +15,10 @@ function Header({ search, searchPlaceholder, openMenu }) {
 
   return (
     <header className="Header">
-      <button type="button" onClick={handleMenu}>
-        <FontAwesomeIcon icon={faBars} />
-      </button>
       <div className="Header__menu">
+        <button className="Header__menu-button" type="button" onClick={handleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
         <div className="Header__logo">
           <img src={logo} alt="Huru" />
         </div>

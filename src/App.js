@@ -18,16 +18,16 @@ export default function App() {
     setSearchPlaceholder(placeholderData);
   }
 
-  function handleOpenMenu() {
+  function handleToggleMenu() {
     setOpenMenu(!openMenu);
   }
 
   return (
     <Router>
-      <Header search={setSearch} searchPlaceholder={searchPlaceholder} openMenu={handleOpenMenu} />
+      <Header search={setSearch} searchPlaceholder={searchPlaceholder} openMenu={handleToggleMenu} />
 
       <main>
-        <Menu open={openMenu} />
+        <Menu open={openMenu} closeMenu={handleToggleMenu} />
 
         <Route
           path="/usuarios"

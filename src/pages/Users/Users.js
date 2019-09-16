@@ -55,7 +55,7 @@ function Users({ search, searchPlaceholder }) {
         </div>
       ) }
 
-      <div className={`Users__detail ${selectedUser && '-selected'}`}>
+      <div className={`Users__detail${selectedUser ? ' -selected' : ''}`}>
         { selectedUser && (
           <div>
             <header className="Users__detail-header">
